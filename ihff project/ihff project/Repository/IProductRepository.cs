@@ -7,7 +7,7 @@ using ihff_project.Models;
 
 namespace ihff_project.Repository
 {
-    interface IFilmRepository
+    interface IProductRepository
     {
         IEnumerable<Film> GetAllFilms();
         Film GetFilm(int filmId);
