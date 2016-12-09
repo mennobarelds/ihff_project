@@ -21,5 +21,10 @@ namespace ihff_project.Controllers
         {
             return View();
         }
+
+        public ActionResult Restaurants()
+        {
+            return View();
+        }
     }
 }
