@@ -11,7 +11,6 @@ namespace ihff_project.Repository
     {
         IEnumerable<Films> GetAllFilms();
         IEnumerable<Voorstellingen> GetAllVoorstellingenFilm(int filmId);
-        Producten GetVoorstellingen(int productId);
         Films GetFilm(int filmId);
         Voorstellingen GetVoorstelling(int productId);
         void EditFilm(Films film);

@@ -22,11 +22,6 @@ namespace ihff_project.Repository
             return allVoorstellingen;
         }
 
-        public Producten GetVoorstellingen(int productId)
-        {
-            return ctx.Producten.SingleOrDefault(c => c.Product_ID == productId);
-        }
-
         public Films GetFilm(int filmId)
         {
             return ctx.Films.SingleOrDefault(c => c.Film_ID == filmId);
@@ -41,5 +36,13 @@ namespace ihff_project.Repository
         {
             throw new NotImplementedException();
         }
+
+        public IEnumerable<Producten> GetAllProducten()
+        {
+            IEnumerable<Producten> allProducts = ctx.Producten;
+            return allProducts;
+        }
+
+        public IEnumerable<AllFilmInfo> GetAll()
     }
 }

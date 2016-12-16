@@ -14,7 +14,10 @@ namespace ihff_project.Controllers
 
         public ActionResult Index()
         {
-            return View();
+            IEnumerable<Films> 
+
+
+            return View(allFilmInfo);
         }
 
         public ActionResult Events()
