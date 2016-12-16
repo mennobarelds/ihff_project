@@ -24,9 +24,9 @@ namespace ihff_project.Controllers
 
         public ActionResult Restaurants()
         {
-            // Producten p = new Producten();
-            // p = productRepository.GetVoorstellingen(1);
-            return View();
+            Producten p = new Producten();
+            p = productRepository.GetVoorstellingen(1);
+            return View(p);
         }
     }
 }
