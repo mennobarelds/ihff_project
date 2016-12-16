@@ -5,25 +5,28 @@
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
       <Diagram DiagramId="b1bc9f4b121a4e6781dcc008cfbe11d1" Name="Diagram1">
-        <EntityTypeShape EntityType="iHFF1617S_B3Model.BesteldeItems" Width="1.5" PointX="5.25" PointY="7" IsExpanded="true" />
-        <EntityTypeShape EntityType="iHFF1617S_B3Model.Bestellingen" Width="1.5" PointX="3" PointY="11" IsExpanded="true" />
-        <EntityTypeShape EntityType="iHFF1617S_B3Model.Cultuur" Width="1.5" PointX="3" PointY="4" IsExpanded="true" />
-        <EntityTypeShape EntityType="iHFF1617S_B3Model.Films" Width="1.5" PointX="6" PointY="4" IsExpanded="true" />
-        <EntityTypeShape EntityType="iHFF1617S_B3Model.Klanten" Width="1.5" PointX="0.75" PointY="11.25" IsExpanded="true" />
-        <EntityTypeShape EntityType="iHFF1617S_B3Model.Locaties" Width="1.5" PointX="0.75" PointY="5.625" IsExpanded="true" />
-        <EntityTypeShape EntityType="iHFF1617S_B3Model.Medewerker" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="iHFF1617S_B3Model.Producten" Width="1.5" PointX="3" PointY="6.5" IsExpanded="true" />
-        <EntityTypeShape EntityType="iHFF1617S_B3Model.Restaurants" Width="1.5" PointX="5.25" PointY="10" IsExpanded="true" />
-        <EntityTypeShape EntityType="iHFF1617S_B3Model.sysdiagrams" Width="1.5" PointX="2.75" PointY="0.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="iHFF1617S_B3Model.Voorstellingen" Width="1.5" PointX="8.25" PointY="6.875" IsExpanded="true" />
-        <AssociationConnector Association="iHFF1617S_B3Model.FK__BesteldeI__Beste__1920BF5C" ManuallyRouted="false" />
-        <AssociationConnector Association="iHFF1617S_B3Model.FK__BesteldeI__Produ__1A14E395" ManuallyRouted="false" />
-        <AssociationConnector Association="iHFF1617S_B3Model.FK__Bestellin__Klant__1273C1CD" ManuallyRouted="false" />
-        <AssociationConnector Association="iHFF1617S_B3Model.FK__Cultuur__Locatie__30F848ED" ManuallyRouted="false" />
-        <AssociationConnector Association="iHFF1617S_B3Model.FK__Voorstell__Film___2E1BDC42" ManuallyRouted="false" />
-        <AssociationConnector Association="iHFF1617S_B3Model.FK__Producten__Locat__3C69FB99" ManuallyRouted="false" />
-        <AssociationConnector Association="iHFF1617S_B3Model.FK__Restauran__Resta__3B75D760" ManuallyRouted="false" />
-        <AssociationConnector Association="iHFF1617S_B3Model.FK__Voorstell__Produ__2D27B809" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="iHFF1617S_B3Model.BesteldeItems" Width="1.5" PointX="5.25" PointY="1.25" />
+        <EntityTypeShape EntityType="iHFF1617S_B3Model.Bestellingen" Width="1.5" PointX="3" PointY="1" />
+        <EntityTypeShape EntityType="iHFF1617S_B3Model.Cultuur" Width="1.5" PointX="3" PointY="9" />
+        <EntityTypeShape EntityType="iHFF1617S_B3Model.Films" Width="1.5" PointX="3" PointY="13.125" />
+        <EntityTypeShape EntityType="iHFF1617S_B3Model.Klanten" Width="1.5" PointX="0.75" PointY="1.125" />
+        <EntityTypeShape EntityType="iHFF1617S_B3Model.Locaties" Width="1.5" PointX="0.75" PointY="5" />
+        <EntityTypeShape EntityType="iHFF1617S_B3Model.Medewerker" Width="1.5" PointX="7.75" PointY="0.75" />
+        <EntityTypeShape EntityType="iHFF1617S_B3Model.Producten" Width="1.5" PointX="3" PointY="4.75" />
+        <EntityTypeShape EntityType="iHFF1617S_B3Model.Restaurants" Width="1.5" PointX="5.25" PointY="8.5" />
+        <EntityTypeShape EntityType="iHFF1617S_B3Model.sysdiagrams" Width="1.5" PointX="7.75" PointY="3.75" />
+        <EntityTypeShape EntityType="iHFF1617S_B3Model.Voorstellingen" Width="1.5" PointX="5.25" PointY="5" />
+        <AssociationConnector Association="iHFF1617S_B3Model.FK__BesteldeI__Beste__43D61337" />
+        <AssociationConnector Association="iHFF1617S_B3Model.FK__BesteldeI__Produ__44CA3770" />
+        <AssociationConnector Association="iHFF1617S_B3Model.FK__Bestellin__Klant__45BE5BA9" />
+        <AssociationConnector Association="iHFF1617S_B3Model.FK__Bestellin__Klant__46B27FE2" />
+        <AssociationConnector Association="iHFF1617S_B3Model.FK__Bestellin__Klant__47A6A41B" />
+        <AssociationConnector Association="iHFF1617S_B3Model.FK__Bestellin__Klant__489AC854" />
+        <AssociationConnector Association="iHFF1617S_B3Model.FK__Cultuur__Locatie__498EEC8D" />
+        <AssociationConnector Association="iHFF1617S_B3Model.FK__Voorstell__Film___4C6B5938" />
+        <AssociationConnector Association="iHFF1617S_B3Model.FK__Producten__Locat__4A8310C6" />
+        <AssociationConnector Association="iHFF1617S_B3Model.FK__Restauran__Resta__4B7734FF" />
+        <AssociationConnector Association="iHFF1617S_B3Model.FK__Voorstell__Produ__4D5F7D71" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

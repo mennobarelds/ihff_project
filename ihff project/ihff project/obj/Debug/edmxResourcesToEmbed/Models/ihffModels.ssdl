@@ -14,7 +14,7 @@
     <Key>
       <PropertyRef Name="Bestelling_ID" />
     </Key>
-    <Property Name="Bestelling_ID" Type="int" Nullable="false" />
+    <Property Name="Bestelling_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="Klant_ID" Type="int" />
     <Property Name="Datum" Type="datetime" />
     <Property Name="Prijs" Type="float" />
@@ -33,15 +33,16 @@
     </Key>
     <Property Name="Film_ID" Type="int" Nullable="false" />
     <Property Name="Genre" Type="varchar" MaxLength="255" />
-    <Property Name="Beschrijving" Type="varchar" MaxLength="255" />
+    <Property Name="Beschrijving" Type="varchar(max)" />
     <Property Name="IMDb_rating" Type="float" />
     <Property Name="Image_path" Type="varchar(max)" />
+    <Property Name="Acteurs" Type="varchar(max)" />
   </EntityType>
   <EntityType Name="Klanten">
     <Key>
       <PropertyRef Name="Klant_ID" />
     </Key>
-    <Property Name="Klant_ID" Type="int" Nullable="false" />
+    <Property Name="Klant_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="Naam" Type="varchar" MaxLength="255" />
     <Property Name="Emailadres" Type="varchar" MaxLength="255" />
   </EntityType>
@@ -49,7 +50,7 @@
     <Key>
       <PropertyRef Name="Locatie_ID" />
     </Key>
-    <Property Name="Locatie_ID" Type="int" Nullable="false" />
+    <Property Name="Locatie_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="Plaats" Type="varchar" MaxLength="255" />
     <Property Name="Straatnaam" Type="varchar" MaxLength="255" />
     <Property Name="Huisnummer" Type="int" />
@@ -60,7 +61,7 @@
     <Key>
       <PropertyRef Name="Medewerker_ID" />
     </Key>
-    <Property Name="Medewerker_ID" Type="int" Nullable="false" />
+    <Property Name="Medewerker_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="Naam" Type="varchar" MaxLength="255" />
     <Property Name="PasswordHash" Type="binary" MaxLength="64" />
     <Property Name="Salt" Type="uniqueidentifier" />
@@ -69,7 +70,7 @@
     <Key>
       <PropertyRef Name="Product_ID" />
     </Key>
-    <Property Name="Product_ID" Type="int" Nullable="false" />
+    <Property Name="Product_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="Naam" Type="varchar" MaxLength="255" />
     <Property Name="Prijs" Type="float" />
     <Property Name="Highlight" Type="bit" />
@@ -108,7 +109,7 @@
     <Property Name="Plaatsen_Over" Type="int" />
     <Property Name="Zaal" Type="varchar" MaxLength="255" />
   </EntityType>
-  <Association Name="FK__BesteldeI__Beste__1920BF5C">
+  <Association Name="FK__BesteldeI__Beste__43D61337">
     <End Role="Bestellingen" Type="Self.Bestellingen" Multiplicity="1" />
     <End Role="BesteldeItems" Type="Self.BesteldeItems" Multiplicity="*" />
     <ReferentialConstraint>
@@ -120,7 +121,7 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__BesteldeI__Produ__1A14E395">
+  <Association Name="FK__BesteldeI__Produ__44CA3770">
     <End Role="Producten" Type="Self.Producten" Multiplicity="1" />
     <End Role="BesteldeItems" Type="Self.BesteldeItems" Multiplicity="*" />
     <ReferentialConstraint>
@@ -132,7 +133,7 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__Bestellin__Klant__1273C1CD">
+  <Association Name="FK__Bestellin__Klant__45BE5BA9">
     <End Role="Klanten" Type="Self.Klanten" Multiplicity="0..1" />
     <End Role="Bestellingen" Type="Self.Bestellingen" Multiplicity="*" />
     <ReferentialConstraint>
@@ -144,7 +145,43 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__Cultuur__Locatie__30F848ED">
+  <Association Name="FK__Bestellin__Klant__46B27FE2">
+    <End Role="Klanten" Type="Self.Klanten" Multiplicity="0..1" />
+    <End Role="Bestellingen" Type="Self.Bestellingen" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Klanten">
+        <PropertyRef Name="Klant_ID" />
+      </Principal>
+      <Dependent Role="Bestellingen">
+        <PropertyRef Name="Klant_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Bestellin__Klant__47A6A41B">
+    <End Role="Klanten" Type="Self.Klanten" Multiplicity="0..1" />
+    <End Role="Bestellingen" Type="Self.Bestellingen" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Klanten">
+        <PropertyRef Name="Klant_ID" />
+      </Principal>
+      <Dependent Role="Bestellingen">
+        <PropertyRef Name="Klant_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Bestellin__Klant__489AC854">
+    <End Role="Klanten" Type="Self.Klanten" Multiplicity="0..1" />
+    <End Role="Bestellingen" Type="Self.Bestellingen" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Klanten">
+        <PropertyRef Name="Klant_ID" />
+      </Principal>
+      <Dependent Role="Bestellingen">
+        <PropertyRef Name="Klant_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Cultuur__Locatie__498EEC8D">
     <End Role="Locaties" Type="Self.Locaties" Multiplicity="0..1" />
     <End Role="Cultuur" Type="Self.Cultuur" Multiplicity="*" />
     <ReferentialConstraint>
@@ -156,7 +193,7 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__Producten__Locat__3C69FB99">
+  <Association Name="FK__Producten__Locat__4A8310C6">
     <End Role="Locaties" Type="Self.Locaties" Multiplicity="0..1" />
     <End Role="Producten" Type="Self.Producten" Multiplicity="*" />
     <ReferentialConstraint>
@@ -168,7 +205,7 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__Restauran__Resta__3B75D760">
+  <Association Name="FK__Restauran__Resta__4B7734FF">
     <End Role="Producten" Type="Self.Producten" Multiplicity="1" />
     <End Role="Restaurants" Type="Self.Restaurants" Multiplicity="0..1" />
     <ReferentialConstraint>
@@ -180,7 +217,7 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__Voorstell__Film___2E1BDC42">
+  <Association Name="FK__Voorstell__Film___4C6B5938">
     <End Role="Films" Type="Self.Films" Multiplicity="0..1" />
     <End Role="Voorstellingen" Type="Self.Voorstellingen" Multiplicity="*" />
     <ReferentialConstraint>
@@ -192,7 +229,7 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__Voorstell__Produ__2D27B809">
+  <Association Name="FK__Voorstell__Produ__4D5F7D71">
     <End Role="Producten" Type="Self.Producten" Multiplicity="1" />
     <End Role="Voorstellingen" Type="Self.Voorstellingen" Multiplicity="0..1" />
     <ReferentialConstraint>
@@ -252,35 +289,47 @@
     <EntitySet Name="Restaurants" EntityType="Self.Restaurants" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Voorstellingen" EntityType="Self.Voorstellingen" Schema="dbo" store:Type="Tables" />
-    <AssociationSet Name="FK__BesteldeI__Beste__1920BF5C" Association="Self.FK__BesteldeI__Beste__1920BF5C">
+    <AssociationSet Name="FK__BesteldeI__Beste__43D61337" Association="Self.FK__BesteldeI__Beste__43D61337">
       <End Role="Bestellingen" EntitySet="Bestellingen" />
       <End Role="BesteldeItems" EntitySet="BesteldeItems" />
     </AssociationSet>
-    <AssociationSet Name="FK__BesteldeI__Produ__1A14E395" Association="Self.FK__BesteldeI__Produ__1A14E395">
+    <AssociationSet Name="FK__BesteldeI__Produ__44CA3770" Association="Self.FK__BesteldeI__Produ__44CA3770">
       <End Role="Producten" EntitySet="Producten" />
       <End Role="BesteldeItems" EntitySet="BesteldeItems" />
     </AssociationSet>
-    <AssociationSet Name="FK__Bestellin__Klant__1273C1CD" Association="Self.FK__Bestellin__Klant__1273C1CD">
+    <AssociationSet Name="FK__Bestellin__Klant__45BE5BA9" Association="Self.FK__Bestellin__Klant__45BE5BA9">
       <End Role="Klanten" EntitySet="Klanten" />
       <End Role="Bestellingen" EntitySet="Bestellingen" />
     </AssociationSet>
-    <AssociationSet Name="FK__Cultuur__Locatie__30F848ED" Association="Self.FK__Cultuur__Locatie__30F848ED">
+    <AssociationSet Name="FK__Bestellin__Klant__46B27FE2" Association="Self.FK__Bestellin__Klant__46B27FE2">
+      <End Role="Klanten" EntitySet="Klanten" />
+      <End Role="Bestellingen" EntitySet="Bestellingen" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Bestellin__Klant__47A6A41B" Association="Self.FK__Bestellin__Klant__47A6A41B">
+      <End Role="Klanten" EntitySet="Klanten" />
+      <End Role="Bestellingen" EntitySet="Bestellingen" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Bestellin__Klant__489AC854" Association="Self.FK__Bestellin__Klant__489AC854">
+      <End Role="Klanten" EntitySet="Klanten" />
+      <End Role="Bestellingen" EntitySet="Bestellingen" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Cultuur__Locatie__498EEC8D" Association="Self.FK__Cultuur__Locatie__498EEC8D">
       <End Role="Locaties" EntitySet="Locaties" />
       <End Role="Cultuur" EntitySet="Cultuur" />
     </AssociationSet>
-    <AssociationSet Name="FK__Producten__Locat__3C69FB99" Association="Self.FK__Producten__Locat__3C69FB99">
+    <AssociationSet Name="FK__Producten__Locat__4A8310C6" Association="Self.FK__Producten__Locat__4A8310C6">
       <End Role="Locaties" EntitySet="Locaties" />
       <End Role="Producten" EntitySet="Producten" />
     </AssociationSet>
-    <AssociationSet Name="FK__Restauran__Resta__3B75D760" Association="Self.FK__Restauran__Resta__3B75D760">
+    <AssociationSet Name="FK__Restauran__Resta__4B7734FF" Association="Self.FK__Restauran__Resta__4B7734FF">
       <End Role="Producten" EntitySet="Producten" />
       <End Role="Restaurants" EntitySet="Restaurants" />
     </AssociationSet>
-    <AssociationSet Name="FK__Voorstell__Film___2E1BDC42" Association="Self.FK__Voorstell__Film___2E1BDC42">
+    <AssociationSet Name="FK__Voorstell__Film___4C6B5938" Association="Self.FK__Voorstell__Film___4C6B5938">
       <End Role="Films" EntitySet="Films" />
       <End Role="Voorstellingen" EntitySet="Voorstellingen" />
     </AssociationSet>
-    <AssociationSet Name="FK__Voorstell__Produ__2D27B809" Association="Self.FK__Voorstell__Produ__2D27B809">
+    <AssociationSet Name="FK__Voorstell__Produ__4D5F7D71" Association="Self.FK__Voorstell__Produ__4D5F7D71">
       <End Role="Producten" EntitySet="Producten" />
       <End Role="Voorstellingen" EntitySet="Voorstellingen" />
     </AssociationSet>
