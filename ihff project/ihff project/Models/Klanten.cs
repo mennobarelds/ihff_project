@@ -18,6 +18,9 @@ namespace ihff_project.Models
         public Klanten()
         {
             this.Bestellingen = new HashSet<Bestellingen>();
+            this.Bestellingen1 = new HashSet<Bestellingen>();
+            this.Bestellingen2 = new HashSet<Bestellingen>();
+            this.Bestellingen3 = new HashSet<Bestellingen>();
         }
     
         public int Klant_ID { get; set; }
@@ -26,5 +29,11 @@ namespace ihff_project.Models
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Bestellingen> Bestellingen { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Bestellingen> Bestellingen1 { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Bestellingen> Bestellingen2 { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Bestellingen> Bestellingen3 { get; set; }
     }
 }
