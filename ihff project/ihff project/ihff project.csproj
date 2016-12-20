@@ -178,6 +178,7 @@
     </Compile>
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\AllFilmInfo.cs" />
+    <Compile Include="Models\AllRestaurantsPageInfo.cs" />
     <Compile Include="Models\BesteldeItems.cs">
       <DependentUpon>ihffModels.tt</DependentUpon>
     </Compile>

@@ -7,5 +7,16 @@ namespace ihff_project.Models
 {
     public class AllFilmInfo
     {
+        public int Film_ID { get; set; }
+        public string Genre { get; set; }
+        public string Beschrijving { get; set; }
+        public Nullable<double> IMDb_rating { get; set; }
+        public string Image_path { get; set; }
+        public string Acteurs { get; set; }
+        public int Product_ID { get; set; }
+        public string Naam { get; set; }
+        public Nullable<double> Prijs { get; set; }
+        public string Dag { get; set; }
+        public string Tijd { get; set; }
     }
 }

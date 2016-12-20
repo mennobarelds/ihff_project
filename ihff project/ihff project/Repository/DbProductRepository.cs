@@ -41,5 +41,11 @@ namespace ihff_project.Repository
         {
             throw new NotImplementedException();
         }
+
+        public IEnumerable<Restaurants> GetAllRestaurants()
+        {
+            IEnumerable<Restaurants> allRestaurants = ctx.Restaurants;
+            return allRestaurants;
+        }
     }
 }

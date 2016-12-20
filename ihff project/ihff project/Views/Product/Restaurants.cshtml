@@ -1,5 +1,5 @@
 ﻿@using ihff_project.Models;
-
+@model IEnumerable<Restaurants>
 
 @{
     ViewBag.Title = "Restaurants";
@@ -11,12 +11,15 @@
     <div class="col-md-9">
         <div class="container-fluid">
             <div class="row">
-
-                <div class="col-md-12">
-                    <h4>RestaurantNaam</h4>
-                    <p>Content <button class="pull-right btn btn-danger">Reserveer</button></p>
-                </div>
-                <hr />
+                @foreach (Restaurants r in Model)
+                {
+                    <div class="col-md-12">
+                        <h4>@r.</h4>
+                        <p>Content <button class="pull-right btn btn-danger">Reserveer</button></p>
+                    </div>
+                    <hr />
+                }
+                
                 <div class="col-md-12">
                     <h4>RestaurantNaam</h4>
                     <p>Content <button class="pull-right btn btn-danger">Reserveer</button></p>

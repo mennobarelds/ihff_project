@@ -15,6 +15,7 @@ namespace ihff_project.Repository
         Films GetFilm(int filmId);
         Voorstellingen GetVoorstelling(int productId);
         void EditFilm(Films film);
+        IEnumerable<Restaurants> GetAllRestaurants();
 
     }
 }
