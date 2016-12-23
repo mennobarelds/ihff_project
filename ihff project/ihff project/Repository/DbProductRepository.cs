@@ -8,12 +8,31 @@ namespace ihff_project.Repository
 {
     public class DbProductRepository : IProductRepository
     {
-        private iHFF1617S_B3 ctx = new iHFF1617S_B3();
+        private iHFF1617S_B3E ctx = new iHFF1617S_B3E();
 
-        public IEnumerable<Films> GetAllFilms()
+        public IEnumerable<AllFilmInfo> GetAllFilmsDag(int dag)
         {
-            IEnumerable<Films> allFilms = ctx.Films;
-            return allFilms;
+            var query = (from producten in ctx.Producten
+                        join voorstellingen in ctx.Voorstellingen on producten.Product_ID equals voorstellingen.Product_ID
+                        join films in ctx.Films on voorstellingen.Film_ID equals films.Film_ID
+                        
+                        select new AllFilmInfo()
+                        {
+                            Product_ID = producten.Product_ID,
+                            Naam = producten.Naam,
+                            Beschrijving_NL = films.Beschrijving_NL,
+                            Beschrijving_EN = films.Beschrijving_EN,
+                            Genre = films.Genre,
+                            Acteurs = films.Acteurs,
+                            IMDb_rating = films.IMDb_rating,
+                            Dag = voorstellingen.Dag,
+                            Tijd = voorstellingen.Tijd,
+                            Zaal = voorstellingen.Zaal,
+                            Image_path = films.Image_path,
+                            Prijs = producten.Prijs
+                        }).ToList();
+
+            return query;
         }
 
         public IEnumerable<Voorstellingen> GetAllVoorstellingenFilm(int filmId)

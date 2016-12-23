@@ -24,7 +24,8 @@ namespace ihff_project.Models
         public string Naam { get; set; }
         public Nullable<double> Prijs { get; set; }
         public Nullable<bool> Highlight { get; set; }
-        public string Highlight_text { get; set; }
+        public string Highlight_text_NL { get; set; }
+        public string Highlight_text_EN { get; set; }
         public string Image_Path { get; set; }
         public Nullable<int> Locatie_ID { get; set; }
     

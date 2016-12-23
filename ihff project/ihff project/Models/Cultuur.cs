@@ -14,9 +14,12 @@ namespace ihff_project.Models
     
     public partial class Cultuur
     {
-        public int Event_ID { get; set; }
+        public int Cultuur_ID { get; set; }
         public string Naam { get; set; }
+        public string Soort { get; set; }
         public Nullable<int> Locatie { get; set; }
+        public string Beschrijving_NL { get; set; }
+        public string Beschrijving_EN { get; set; }
     
         public virtual Locaties Locaties { get; set; }
     }

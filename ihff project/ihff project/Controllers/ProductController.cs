@@ -19,7 +19,8 @@ namespace ihff_project.Controllers
 
         public ActionResult Events()
         {
-            return View();
+            IEnumerable<AllFilmInfo> filmList = productRepository.GetAllFilmsDag(3);
+            return View(filmList);
         }
 
         public ActionResult Restaurants()
