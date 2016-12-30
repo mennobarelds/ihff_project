@@ -15,21 +15,28 @@ namespace ihff_project.Repository
             var query = (from producten in ctx.Producten
                         join voorstellingen in ctx.Voorstellingen on producten.Product_ID equals voorstellingen.Product_ID
                         join films in ctx.Films on voorstellingen.Film_ID equals films.Film_ID
-                        
+                        join locaties in ctx.Locaties on producten.Locatie_ID equals locaties.Locatie_ID
+                        where voorstellingen.Dag == dag
+                        orderby voorstellingen.Start_Tijd ascending
                         select new AllFilmInfo()
                         {
                             Product_ID = producten.Product_ID,
-                            Naam = producten.Naam,
+                            Film_ID = films.Film_ID,
+                            Locatie_ID = locaties.Locatie_ID,
+                            Locatie_Naam = locaties.Locatie_Naam,
+                            Film_Naam = films.Film_Naam,
                             Beschrijving_NL = films.Beschrijving_NL,
                             Beschrijving_EN = films.Beschrijving_EN,
                             Genre = films.Genre,
                             Acteurs = films.Acteurs,
                             IMDb_rating = films.IMDb_rating,
                             Dag = voorstellingen.Dag,
-                            Tijd = voorstellingen.Tijd,
+                            Start_Tijd = voorstellingen.Start_Tijd,
+                            Eind_Tijd = voorstellingen.Eind_Tijd,
                             Zaal = voorstellingen.Zaal,
                             Image_path = films.Image_path,
                             Prijs = producten.Prijs
+
                         }).ToList();
 
             return query;

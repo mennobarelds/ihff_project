@@ -25,7 +25,6 @@
       <PropertyRef Name="Cultuur_ID" />
     </Key>
     <Property Name="Cultuur_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="Naam" Type="varchar" MaxLength="255" />
     <Property Name="Soort" Type="varchar" MaxLength="255" />
     <Property Name="Locatie" Type="int" />
     <Property Name="Beschrijving_NL" Type="varchar(max)" />
@@ -36,6 +35,7 @@
       <PropertyRef Name="Film_ID" />
     </Key>
     <Property Name="Film_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Film_Naam" Type="varchar" MaxLength="70" />
     <Property Name="Genre" Type="varchar" MaxLength="255" />
     <Property Name="Beschrijving_NL" Type="varchar(max)" />
     <Property Name="Beschrijving_EN" Type="varchar(max)" />
@@ -56,6 +56,7 @@
       <PropertyRef Name="Locatie_ID" />
     </Key>
     <Property Name="Locatie_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Locatie_Naam" Type="varchar" MaxLength="50" />
     <Property Name="Plaats" Type="varchar" MaxLength="255" />
     <Property Name="Straatnaam" Type="varchar" MaxLength="255" />
     <Property Name="Huisnummer" Type="int" />
@@ -76,7 +77,6 @@
       <PropertyRef Name="Product_ID" />
     </Key>
     <Property Name="Product_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="Naam" Type="varchar" MaxLength="255" />
     <Property Name="Prijs" Type="float" />
     <Property Name="Highlight" Type="bit" />
     <Property Name="Highlight_text_NL" Type="varchar(max)" />
@@ -113,7 +113,8 @@
     <Property Name="Product_ID" Type="int" Nullable="false" />
     <Property Name="Film_ID" Type="int" />
     <Property Name="Dag" Type="int" />
-    <Property Name="Tijd" Type="varchar" MaxLength="20" />
+    <Property Name="Start_Tijd" Type="time" Precision="7" />
+    <Property Name="Eind_Tijd" Type="time" Precision="7" />
     <Property Name="Plaatsen_Over" Type="int" />
     <Property Name="Zaal" Type="varchar" MaxLength="255" />
   </EntityType>

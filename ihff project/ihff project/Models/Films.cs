@@ -21,6 +21,7 @@ namespace ihff_project.Models
         }
     
         public int Film_ID { get; set; }
+        public string Film_Naam { get; set; }
         public string Genre { get; set; }
         public string Beschrijving_NL { get; set; }
         public string Beschrijving_EN { get; set; }

@@ -16,9 +16,12 @@ namespace ihff_project.Models
         public string Acteurs { get; set; }
         public int Product_ID { get; set; }
         public Nullable<int> Dag { get; set; }
-        public string Tijd { get; set; }
+        public Nullable<System.TimeSpan> Start_Tijd { get; set; }
+        public Nullable<System.TimeSpan> Eind_Tijd { get; set; }
         public string Zaal { get; set; }
-        public string Naam { get; set; }
+        public string Film_Naam { get; set; }
         public Nullable<double> Prijs { get; set; }
+        public int Locatie_ID { get; set; }
+        public string Locatie_Naam { get; set; }
     }
 }
