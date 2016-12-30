@@ -28,8 +28,5 @@ namespace ihff_project.Models
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<BesteldeItems> BesteldeItems { get; set; }
         public virtual Klanten Klanten { get; set; }
-        public virtual Klanten Klanten1 { get; set; }
-        public virtual Klanten Klanten2 { get; set; }
-        public virtual Klanten Klanten3 { get; set; }
     }
 }

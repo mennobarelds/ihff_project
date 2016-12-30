@@ -1,34 +1,10 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-  <EntityContainerMapping StorageEntityContainer="iHFF1617S_B3ModelStoreContainer" CdmEntityContainer="iHFF1617S_B3">
-    <FunctionImportMapping FunctionImportName="MaakMedewerker" FunctionName="iHFF1617S_B3Model.Store.MaakMedewerker" />
-    <FunctionImportMapping FunctionImportName="sp_alterdiagram" FunctionName="iHFF1617S_B3Model.Store.sp_alterdiagram" />
-    <FunctionImportMapping FunctionImportName="sp_creatediagram" FunctionName="iHFF1617S_B3Model.Store.sp_creatediagram" />
-    <FunctionImportMapping FunctionImportName="sp_dropdiagram" FunctionName="iHFF1617S_B3Model.Store.sp_dropdiagram" />
-    <FunctionImportMapping FunctionImportName="sp_helpdiagramdefinition" FunctionName="iHFF1617S_B3Model.Store.sp_helpdiagramdefinition">
-      <ResultMapping>
-        <ComplexTypeMapping TypeName="iHFF1617S_B3Model.sp_helpdiagramdefinition_Result">
-          <ScalarProperty Name="version" ColumnName="version" />
-          <ScalarProperty Name="definition" ColumnName="definition" />
-        </ComplexTypeMapping>
-      </ResultMapping>
-    </FunctionImportMapping>
-    <FunctionImportMapping FunctionImportName="sp_helpdiagrams" FunctionName="iHFF1617S_B3Model.Store.sp_helpdiagrams">
-      <ResultMapping>
-        <ComplexTypeMapping TypeName="iHFF1617S_B3Model.sp_helpdiagrams_Result">
-          <ScalarProperty Name="Database" ColumnName="Database" />
-          <ScalarProperty Name="Name" ColumnName="Name" />
-          <ScalarProperty Name="ID" ColumnName="ID" />
-          <ScalarProperty Name="Owner" ColumnName="Owner" />
-          <ScalarProperty Name="OwnerID" ColumnName="OwnerID" />
-        </ComplexTypeMapping>
-      </ResultMapping>
-    </FunctionImportMapping>
-    <FunctionImportMapping FunctionImportName="sp_renamediagram" FunctionName="iHFF1617S_B3Model.Store.sp_renamediagram" />
-    <FunctionImportMapping FunctionImportName="sp_upgraddiagrams" FunctionName="iHFF1617S_B3Model.Store.sp_upgraddiagrams" />
+  <EntityContainerMapping StorageEntityContainer="iHFF1617S_B3ModelStoreContainer" CdmEntityContainer="iHFF1617S_B3E">
     <EntitySetMapping Name="BesteldeItems">
       <EntityTypeMapping TypeName="iHFF1617S_B3Model.BesteldeItems">
         <MappingFragment StoreEntitySet="BesteldeItems">
+          <ScalarProperty Name="Zaal13_Codes" ColumnName="Zaal13_Codes" />
           <ScalarProperty Name="Prijs" ColumnName="Prijs" />
           <ScalarProperty Name="Aantal" ColumnName="Aantal" />
           <ScalarProperty Name="Product" ColumnName="Product" />
@@ -49,9 +25,11 @@
     <EntitySetMapping Name="Cultuur">
       <EntityTypeMapping TypeName="iHFF1617S_B3Model.Cultuur">
         <MappingFragment StoreEntitySet="Cultuur">
+          <ScalarProperty Name="Beschrijving_EN" ColumnName="Beschrijving_EN" />
+          <ScalarProperty Name="Beschrijving_NL" ColumnName="Beschrijving_NL" />
           <ScalarProperty Name="Locatie" ColumnName="Locatie" />
-          <ScalarProperty Name="Naam" ColumnName="Naam" />
-          <ScalarProperty Name="Event_ID" ColumnName="Event_ID" />
+          <ScalarProperty Name="Soort" ColumnName="Soort" />
+          <ScalarProperty Name="Cultuur_ID" ColumnName="Cultuur_ID" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -61,8 +39,10 @@
           <ScalarProperty Name="Acteurs" ColumnName="Acteurs" />
           <ScalarProperty Name="Image_path" ColumnName="Image_path" />
           <ScalarProperty Name="IMDb_rating" ColumnName="IMDb_rating" />
-          <ScalarProperty Name="Beschrijving" ColumnName="Beschrijving" />
+          <ScalarProperty Name="Beschrijving_EN" ColumnName="Beschrijving_EN" />
+          <ScalarProperty Name="Beschrijving_NL" ColumnName="Beschrijving_NL" />
           <ScalarProperty Name="Genre" ColumnName="Genre" />
+          <ScalarProperty Name="Film_Naam" ColumnName="Film_Naam" />
           <ScalarProperty Name="Film_ID" ColumnName="Film_ID" />
         </MappingFragment>
       </EntityTypeMapping>
@@ -84,6 +64,7 @@
           <ScalarProperty Name="Huisnummer" ColumnName="Huisnummer" />
           <ScalarProperty Name="Straatnaam" ColumnName="Straatnaam" />
           <ScalarProperty Name="Plaats" ColumnName="Plaats" />
+          <ScalarProperty Name="Locatie_Naam" ColumnName="Locatie_Naam" />
           <ScalarProperty Name="Locatie_ID" ColumnName="Locatie_ID" />
         </MappingFragment>
       </EntityTypeMapping>
@@ -103,10 +84,10 @@
         <MappingFragment StoreEntitySet="Producten">
           <ScalarProperty Name="Locatie_ID" ColumnName="Locatie_ID" />
           <ScalarProperty Name="Image_Path" ColumnName="Image_Path" />
-          <ScalarProperty Name="Highlight_text" ColumnName="Highlight_text" />
+          <ScalarProperty Name="Highlight_text_EN" ColumnName="Highlight_text_EN" />
+          <ScalarProperty Name="Highlight_text_NL" ColumnName="Highlight_text_NL" />
           <ScalarProperty Name="Highlight" ColumnName="Highlight" />
           <ScalarProperty Name="Prijs" ColumnName="Prijs" />
-          <ScalarProperty Name="Naam" ColumnName="Naam" />
           <ScalarProperty Name="Product_ID" ColumnName="Product_ID" />
         </MappingFragment>
       </EntityTypeMapping>
@@ -117,6 +98,8 @@
           <ScalarProperty Name="Emailadres" ColumnName="Emailadres" />
           <ScalarProperty Name="Slutingstijd" ColumnName="Slutingstijd" />
           <ScalarProperty Name="Openingstijd" ColumnName="Openingstijd" />
+          <ScalarProperty Name="Beschrijving_EN" ColumnName="Beschrijving_EN" />
+          <ScalarProperty Name="Beschrijving_NL" ColumnName="Beschrijving_NL" />
           <ScalarProperty Name="Soort_Keuken" ColumnName="Soort_Keuken" />
           <ScalarProperty Name="Restaurant_ID" ColumnName="Restaurant_ID" />
         </MappingFragment>
@@ -138,7 +121,8 @@
         <MappingFragment StoreEntitySet="Voorstellingen">
           <ScalarProperty Name="Zaal" ColumnName="Zaal" />
           <ScalarProperty Name="Plaatsen_Over" ColumnName="Plaatsen_Over" />
-          <ScalarProperty Name="Tijd" ColumnName="Tijd" />
+          <ScalarProperty Name="Eind_Tijd" ColumnName="Eind_Tijd" />
+          <ScalarProperty Name="Start_Tijd" ColumnName="Start_Tijd" />
           <ScalarProperty Name="Dag" ColumnName="Dag" />
           <ScalarProperty Name="Film_ID" ColumnName="Film_ID" />
           <ScalarProperty Name="Product_ID" ColumnName="Product_ID" />

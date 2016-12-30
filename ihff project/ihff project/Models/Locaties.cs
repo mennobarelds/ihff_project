@@ -22,6 +22,7 @@ namespace ihff_project.Models
         }
     
         public int Locatie_ID { get; set; }
+        public string Locatie_Naam { get; set; }
         public string Plaats { get; set; }
         public string Straatnaam { get; set; }
         public Nullable<int> Huisnummer { get; set; }

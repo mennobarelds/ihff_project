@@ -1,9 +1,72 @@
-﻿
+﻿@using ihff_project.Models;
+@model IEnumerable<Restaurants>
+
 @{
     ViewBag.Title = "Restaurants";
 }
 
-<h2>Restaurants MICK FUKT UP</h2>
+<h2>Restaurants</h2>
+
+<div class="row">
+    <div class="col-md-9">
+        <div class="container-fluid">
+            <div class="row">
+                @foreach (Restaurants r in Model)
+                {
+                    <div class="col-md-12">
+                        <h4>@r.</h4>
+                        <p>Content <button class="pull-right btn btn-danger">Reserveer</button></p>
+                    </div>
+                    <hr />
+                }
+                
+                <div class="col-md-12">
+                    <h4>RestaurantNaam</h4>
+                    <p>Content <button class="pull-right btn btn-danger">Reserveer</button></p>
+                </div>
+                <hr />
+                <div class="col-md-12">
+                    <h4>RestaurantNaam</h4>
+                    <p>Content <button class="pull-right btn btn-danger">Reserveer</button></p>
+                </div>
+                <hr />
+                <div class="col-md-12">
+                    <h4>RestaurantNaam</h4>
+                    <p>Content <button class="pull-right btn btn-danger">Reserveer</button></p>
+                </div>
+                <hr />
+                <div class="col-md-12">
+                    <h4>RestaurantNaam</h4>
+                    <p>Content <button class="pull-right btn btn-danger">Reserveer</button></p>
+                </div>
+                <hr />
+                <div class="col-md-12">
+                    <h4>RestaurantNaam</h4>
+                    <p>Content <button class="pull-right btn btn-danger">Reserveer</button></p>
+                </div>
+                <hr />
+
+            </div>
+        </div>
+
+    </div>
+    <div class="col-md-3">
+        <h3>Personal Programme</h3>
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="PersonalProgrammeBox" style="background-color:#808080; border: 1px dashed black; height: 200px;">
+                        <p>Element1</p>
+                        <p>Element1</p>
+                        <p>Element1</p>
+                        <button type="button" class="btn btn-danger btn-lg btn-block" style="background-color: #c48416 !important;">Block level button</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
 
 
 

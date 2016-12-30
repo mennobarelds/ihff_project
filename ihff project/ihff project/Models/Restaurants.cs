@@ -16,6 +16,8 @@ namespace ihff_project.Models
     {
         public int Restaurant_ID { get; set; }
         public string Soort_Keuken { get; set; }
+        public string Beschrijving_NL { get; set; }
+        public string Beschrijving_EN { get; set; }
         public Nullable<System.TimeSpan> Openingstijd { get; set; }
         public Nullable<System.TimeSpan> Slutingstijd { get; set; }
         public string Emailadres { get; set; }

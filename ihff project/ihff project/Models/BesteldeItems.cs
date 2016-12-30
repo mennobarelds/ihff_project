@@ -18,6 +18,7 @@ namespace ihff_project.Models
         public int Product { get; set; }
         public Nullable<int> Aantal { get; set; }
         public Nullable<double> Prijs { get; set; }
+        public string Zaal13_Codes { get; set; }
     
         public virtual Bestellingen Bestellingen { get; set; }
         public virtual Producten Producten { get; set; }

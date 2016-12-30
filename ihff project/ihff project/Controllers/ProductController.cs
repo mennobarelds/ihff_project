@@ -14,20 +14,19 @@ namespace ihff_project.Controllers
 
         public ActionResult Index()
         {
-            IEnumerable<Films> 
-
-
-            return View(allFilmInfo);
+            return View();
         }
 
         public ActionResult Events()
         {
-            return View();
+            IEnumerable<AllFilmInfo> filmList = productRepository.GetAllFilmsDag(3);
+            return View(filmList);
         }
 
         public ActionResult Restaurants()
         {
-            return View();
+            IEnumerable<Restaurants> restaurants = productRepository.GetAllRestaurants();
+            return View(restaurants);
         }
     }
 }

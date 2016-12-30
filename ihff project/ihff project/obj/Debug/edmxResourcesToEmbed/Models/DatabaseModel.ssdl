@@ -9,6 +9,7 @@
     <Property Name="Product" Type="int" Nullable="false" />
     <Property Name="Aantal" Type="int" />
     <Property Name="Prijs" Type="float" />
+    <Property Name="Zaal13_Codes" Type="varchar(max)" />
   </EntityType>
   <EntityType Name="Bestellingen">
     <Key>
@@ -21,19 +22,23 @@
   </EntityType>
   <EntityType Name="Cultuur">
     <Key>
-      <PropertyRef Name="Event_ID" />
+      <PropertyRef Name="Cultuur_ID" />
     </Key>
-    <Property Name="Event_ID" Type="int" Nullable="false" />
-    <Property Name="Naam" Type="varchar" MaxLength="255" />
+    <Property Name="Cultuur_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Soort" Type="varchar" MaxLength="255" />
     <Property Name="Locatie" Type="int" />
+    <Property Name="Beschrijving_NL" Type="varchar(max)" />
+    <Property Name="Beschrijving_EN" Type="varchar(max)" />
   </EntityType>
   <EntityType Name="Films">
     <Key>
       <PropertyRef Name="Film_ID" />
     </Key>
-    <Property Name="Film_ID" Type="int" Nullable="false" />
+    <Property Name="Film_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Film_Naam" Type="varchar" MaxLength="70" />
     <Property Name="Genre" Type="varchar" MaxLength="255" />
-    <Property Name="Beschrijving" Type="varchar(max)" />
+    <Property Name="Beschrijving_NL" Type="varchar(max)" />
+    <Property Name="Beschrijving_EN" Type="varchar(max)" />
     <Property Name="IMDb_rating" Type="float" />
     <Property Name="Image_path" Type="varchar(max)" />
     <Property Name="Acteurs" Type="varchar(max)" />
@@ -51,6 +56,7 @@
       <PropertyRef Name="Locatie_ID" />
     </Key>
     <Property Name="Locatie_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Locatie_Naam" Type="varchar" MaxLength="50" />
     <Property Name="Plaats" Type="varchar" MaxLength="255" />
     <Property Name="Straatnaam" Type="varchar" MaxLength="255" />
     <Property Name="Huisnummer" Type="int" />
@@ -71,10 +77,10 @@
       <PropertyRef Name="Product_ID" />
     </Key>
     <Property Name="Product_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="Naam" Type="varchar" MaxLength="255" />
     <Property Name="Prijs" Type="float" />
     <Property Name="Highlight" Type="bit" />
-    <Property Name="Highlight_text" Type="varchar(max)" />
+    <Property Name="Highlight_text_NL" Type="varchar(max)" />
+    <Property Name="Highlight_text_EN" Type="varchar(max)" />
     <Property Name="Image_Path" Type="varchar(max)" />
     <Property Name="Locatie_ID" Type="int" />
   </EntityType>
@@ -84,6 +90,8 @@
     </Key>
     <Property Name="Restaurant_ID" Type="int" Nullable="false" />
     <Property Name="Soort_Keuken" Type="varchar" MaxLength="255" />
+    <Property Name="Beschrijving_NL" Type="varchar(max)" />
+    <Property Name="Beschrijving_EN" Type="varchar(max)" />
     <Property Name="Openingstijd" Type="time" Precision="7" />
     <Property Name="Slutingstijd" Type="time" Precision="7" />
     <Property Name="Emailadres" Type="varchar" MaxLength="255" />
@@ -104,8 +112,9 @@
     </Key>
     <Property Name="Product_ID" Type="int" Nullable="false" />
     <Property Name="Film_ID" Type="int" />
-    <Property Name="Dag" Type="varchar" MaxLength="255" />
-    <Property Name="Tijd" Type="varchar" MaxLength="20" />
+    <Property Name="Dag" Type="int" />
+    <Property Name="Start_Tijd" Type="time" Precision="7" />
+    <Property Name="Eind_Tijd" Type="time" Precision="7" />
     <Property Name="Plaatsen_Over" Type="int" />
     <Property Name="Zaal" Type="varchar" MaxLength="255" />
   </EntityType>
@@ -133,42 +142,6 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__Bestellin__Klant__45BE5BA9">
-    <End Role="Klanten" Type="Self.Klanten" Multiplicity="0..1" />
-    <End Role="Bestellingen" Type="Self.Bestellingen" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="Klanten">
-        <PropertyRef Name="Klant_ID" />
-      </Principal>
-      <Dependent Role="Bestellingen">
-        <PropertyRef Name="Klant_ID" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK__Bestellin__Klant__46B27FE2">
-    <End Role="Klanten" Type="Self.Klanten" Multiplicity="0..1" />
-    <End Role="Bestellingen" Type="Self.Bestellingen" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="Klanten">
-        <PropertyRef Name="Klant_ID" />
-      </Principal>
-      <Dependent Role="Bestellingen">
-        <PropertyRef Name="Klant_ID" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK__Bestellin__Klant__47A6A41B">
-    <End Role="Klanten" Type="Self.Klanten" Multiplicity="0..1" />
-    <End Role="Bestellingen" Type="Self.Bestellingen" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="Klanten">
-        <PropertyRef Name="Klant_ID" />
-      </Principal>
-      <Dependent Role="Bestellingen">
-        <PropertyRef Name="Klant_ID" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
   <Association Name="FK__Bestellin__Klant__489AC854">
     <End Role="Klanten" Type="Self.Klanten" Multiplicity="0..1" />
     <End Role="Bestellingen" Type="Self.Bestellingen" Multiplicity="*" />
@@ -181,7 +154,7 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__Cultuur__Locatie__498EEC8D">
+  <Association Name="FK__Cultuur__Locatie__5BAD9CC8">
     <End Role="Locaties" Type="Self.Locaties" Multiplicity="0..1" />
     <End Role="Cultuur" Type="Self.Cultuur" Multiplicity="*" />
     <ReferentialConstraint>
@@ -205,7 +178,7 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__Restauran__Resta__4B7734FF">
+  <Association Name="FK__Restauran__Resta__6166761E">
     <End Role="Producten" Type="Self.Producten" Multiplicity="1" />
     <End Role="Restaurants" Type="Self.Restaurants" Multiplicity="0..1" />
     <ReferentialConstraint>
@@ -241,42 +214,6 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Function Name="fn_diagramobjects" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" ReturnType="int" />
-  <Function Name="MaakMedewerker" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
-    <Parameter Name="pID" Type="int" Mode="In" />
-    <Parameter Name="pWachtwoord" Type="nvarchar" Mode="In" />
-    <Parameter Name="pNaam" Type="nvarchar" Mode="In" />
-  </Function>
-  <Function Name="sp_alterdiagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
-    <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
-    <Parameter Name="owner_id" Type="int" Mode="In" />
-    <Parameter Name="version" Type="int" Mode="In" />
-    <Parameter Name="definition" Type="varbinary(max)" Mode="In" />
-  </Function>
-  <Function Name="sp_creatediagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
-    <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
-    <Parameter Name="owner_id" Type="int" Mode="In" />
-    <Parameter Name="version" Type="int" Mode="In" />
-    <Parameter Name="definition" Type="varbinary(max)" Mode="In" />
-  </Function>
-  <Function Name="sp_dropdiagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
-    <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
-    <Parameter Name="owner_id" Type="int" Mode="In" />
-  </Function>
-  <Function Name="sp_helpdiagramdefinition" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
-    <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
-    <Parameter Name="owner_id" Type="int" Mode="In" />
-  </Function>
-  <Function Name="sp_helpdiagrams" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
-    <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
-    <Parameter Name="owner_id" Type="int" Mode="In" />
-  </Function>
-  <Function Name="sp_renamediagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
-    <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
-    <Parameter Name="owner_id" Type="int" Mode="In" />
-    <Parameter Name="new_diagramname" Type="nvarchar" Mode="In" />
-  </Function>
-  <Function Name="sp_upgraddiagrams" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
   <EntityContainer Name="iHFF1617S_B3ModelStoreContainer">
     <EntitySet Name="BesteldeItems" EntityType="Self.BesteldeItems" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Bestellingen" EntityType="Self.Bestellingen" Schema="dbo" store:Type="Tables" />
@@ -297,23 +234,11 @@
       <End Role="Producten" EntitySet="Producten" />
       <End Role="BesteldeItems" EntitySet="BesteldeItems" />
     </AssociationSet>
-    <AssociationSet Name="FK__Bestellin__Klant__45BE5BA9" Association="Self.FK__Bestellin__Klant__45BE5BA9">
-      <End Role="Klanten" EntitySet="Klanten" />
-      <End Role="Bestellingen" EntitySet="Bestellingen" />
-    </AssociationSet>
-    <AssociationSet Name="FK__Bestellin__Klant__46B27FE2" Association="Self.FK__Bestellin__Klant__46B27FE2">
-      <End Role="Klanten" EntitySet="Klanten" />
-      <End Role="Bestellingen" EntitySet="Bestellingen" />
-    </AssociationSet>
-    <AssociationSet Name="FK__Bestellin__Klant__47A6A41B" Association="Self.FK__Bestellin__Klant__47A6A41B">
-      <End Role="Klanten" EntitySet="Klanten" />
-      <End Role="Bestellingen" EntitySet="Bestellingen" />
-    </AssociationSet>
     <AssociationSet Name="FK__Bestellin__Klant__489AC854" Association="Self.FK__Bestellin__Klant__489AC854">
       <End Role="Klanten" EntitySet="Klanten" />
       <End Role="Bestellingen" EntitySet="Bestellingen" />
     </AssociationSet>
-    <AssociationSet Name="FK__Cultuur__Locatie__498EEC8D" Association="Self.FK__Cultuur__Locatie__498EEC8D">
+    <AssociationSet Name="FK__Cultuur__Locatie__5BAD9CC8" Association="Self.FK__Cultuur__Locatie__5BAD9CC8">
       <End Role="Locaties" EntitySet="Locaties" />
       <End Role="Cultuur" EntitySet="Cultuur" />
     </AssociationSet>
@@ -321,7 +246,7 @@
       <End Role="Locaties" EntitySet="Locaties" />
       <End Role="Producten" EntitySet="Producten" />
     </AssociationSet>
-    <AssociationSet Name="FK__Restauran__Resta__4B7734FF" Association="Self.FK__Restauran__Resta__4B7734FF">
+    <AssociationSet Name="FK__Restauran__Resta__6166761E" Association="Self.FK__Restauran__Resta__6166761E">
       <End Role="Producten" EntitySet="Producten" />
       <End Role="Restaurants" EntitySet="Restaurants" />
     </AssociationSet>

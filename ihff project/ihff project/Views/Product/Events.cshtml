@@ -1,7 +1,53 @@
-﻿
+﻿@using ihff_project.Models;
+@model IEnumerable<AllFilmInfo>
+
 @{
     ViewBag.Title = "Events";
 }
 
 <h2>Events</h2>
+
+<div class="row">
+    <div class="col-md-9">
+        <div class="container-fluid">
+            <div class="row">
+                @foreach (AllFilmInfo f in Model)
+                {
+                    <div class="col-md-12">
+                        <h4>@f.Film_Naam - @f.Prijs</h4>
+                        <p><img src="@f.Image_path" alt="Movie image" height="250"/>
+                        [@f.Start_Tijd - @f.Eind_Tijd] in @f.Locatie_Naam - @f.Zaal <br \>
+                        @f.IMDb_rating<br \>
+                        @f.Beschrijving_EN</p>
+                        <p>
+                        <button class="pull-right btn btn-danger">Buy now</button>
+                        <button class="pull-right btn btn-danger">Add to programme</button>
+                        </p>    
+                    </div>
+                    <hr />
+                }
+
+            </div>
+        </div>
+
+    </div>
+    <div class="col-md-3">
+        <h3>Personal Programme</h3>
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="PersonalProgrammeBox" style="background-color:#fff; height: 200px;">
+                        <p>Element1</p>
+                        <p>Element1</p>
+                        <p>Element1</p>
+                        <button type="button" class="btn btn-danger btn-lg btn-block" style="background-color: #c48416 !important;">Add programme to cart</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
 
