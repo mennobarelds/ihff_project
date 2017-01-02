@@ -14,11 +14,23 @@
                 @foreach (AllFilmInfo f in Model)
                 {
                     <div class="col-md-12">
-                        <h4>@f.Film_Naam - @f.Prijs</h4>
+                        <h4><label>@f.Film_Naam - 
+                        @if (f.Prijs == 0)
+                        {
+                            @:Free
+                        }
+                        else
+                        {
+                            @: €@string.Format("{0:0.00}", f.Prijs)
+                        }
+                        </label></h4>
                         <p><img src="@f.Image_path" alt="Movie image" height="250"/>
-                        [@f.Start_Tijd - @f.Eind_Tijd] in @f.Locatie_Naam - @f.Zaal <br \>
-                        @f.IMDb_rating<br \>
-                        @f.Beschrijving_EN</p>
+                        [@string.Format("{0:hh\\:mm}", f.Start_Tijd) until @string.Format("{0:hh\\:mm}", f.Eind_Tijd)] in @f.Locatie_Naam - @f.Zaal <br \>
+                        @if (f.IMDb_rating != null)
+                        {
+                            @:IMDb rating: @f.IMDb_rating<br \>
+                        }
+                        @f.Beschrijving_EN
                         <p>
                         <button class="pull-right btn btn-danger">Buy now</button>
                         <button class="pull-right btn btn-danger">Add to programme</button>
