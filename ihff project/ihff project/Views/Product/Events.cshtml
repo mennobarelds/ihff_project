@@ -11,7 +11,6 @@
         <div class="container-fluid">
             <div class="row">
                 <div class="col-md-12">
-                    Dayfilter:
                     <h3>
                         @Html.ActionLink("All", "Events", "Product", new { dag = 0 }, null)
                         @Html.ActionLink("Wednesday", "Events", "Product", new { dag = 3 }, null)
@@ -20,9 +19,10 @@
                         @Html.ActionLink("Saterday", "Events", "Product", new { dag = 6 }, null)
                         @Html.ActionLink("Sunday", "Events", "Product", new { dag = 7 }, null)
                     </h3>
-                    </div>
-                    <hr />
 
+                    <hr />
+                    <h3>All events on @ViewBag.Dag</h3><br \>
+                </div>
                     @foreach (AllFilmInfo f in Model)
                     {
                         AllFilmInfo film = f;
@@ -50,8 +50,8 @@
                         }
                         @f.Beschrijving_EN
                         <form action="" method="post">
-                            <input type="submit" value="Buy now" name="action:Buy" />
-                            <input type="submit" value="Add to programme" name="action:Programme" />
+                            <input class="btn btn-default" type="submit" value="Buy now" name="action:Buy" />
+                            <input class="btn btn-default" type="submit" value="Add to programme" name="action:Programme" />
                         </form>
                     </div>
                     <hr />

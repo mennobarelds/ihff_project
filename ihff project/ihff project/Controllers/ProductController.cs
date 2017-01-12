@@ -26,6 +26,28 @@ namespace ihff_project.Controllers
             else
                 filmList = productRepository.GetAllFilms();
 
+            switch(dag)
+            {
+                case 3:
+                    ViewBag.Dag = "Wednesday";
+                    break;
+                case 4:
+                    ViewBag.Dag = "Thursday";
+                    break;
+                case 5:
+                    ViewBag.Dag = "Friday";
+                    break;
+                case 6:
+                    ViewBag.Dag = "Saterday";
+                    break;
+                case 7:
+                    ViewBag.Dag = "Sunday";
+                    break;
+                default:
+                    ViewBag.Dag = "the programme";
+                    break;
+            }
+                
             return View(filmList);
         }
 

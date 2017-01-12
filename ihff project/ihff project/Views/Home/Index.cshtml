@@ -1,22 +1,29 @@
-﻿@{
+﻿@using ihff_project.Models;
+@model IEnumerable<Producten>
+
+@{
     ViewBag.Title = "Home Page";
 }
 
+<script type="text/javascript" src="@Url.Content("~/Scripts/jquery-1.10.2.js")"></script>
+<script type="text/javascript" src="@Url.Content("~/Scripts/jquery.unobtrusive-ajax.min.js")"></script>
+@Styles.Render("~/Content/css")
+
 <div class="jumbotron">
-    <h1>Highlights afbeeldingen</h1>
+    @Model.
 </div>
 
 <div class="row">
     <div class="col-md-4">
         <h2>Events</h2>
         <p>Great movies and inspiring specials</p>
-        <p>@Html.ActionLink("See all available activities", "Events", "Product")</p>
+        <p>@Html.ActionLink("See all available activities", "Events", "Product", null, new { @class = "btn btn-default" })</p>
         <h2>Food</h2>
         <p>Delicious food in exquisite restaurants</p>
-        <p>@Html.ActionLink("See all available restaurants", "Restaurants", "Product")</p>
+        <p>@Html.ActionLink("See all available restaurants", "Restaurants", "Product", null, new { @class = "btn btn-default" })</p>
         <h2>Culture</h2>
         <p>Experience the rich culture of the city</p>
-        <p>@Html.ActionLink("Points of interest in Haarlem", "Events", "Product")</p>
+        <p>@Html.ActionLink("Points of interest in Haarlem", "Events", "Product", null, new { @class = "btn btn-default" })</p>
     </div>
     <div class="col-md-4">
         <h2>Film&Food Tickets</h2>

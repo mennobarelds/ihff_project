@@ -344,7 +344,7 @@ textarea {
 
 a {
   color: #000;
-  text-decoration: none;
+  text-decoration: underline;
 }
 
 a:hover,
@@ -2057,8 +2057,8 @@ fieldset[disabled] .btn {
 }
 
 .btn-default {
-  color: #333333;
-  background-color: #ffffff;
+  color: #fff;
+  background-color: #c48416;
   border-color: #cccccc;
 }
 
@@ -2067,7 +2067,7 @@ fieldset[disabled] .btn {
 .btn-default:active,
 .btn-default.active,
 .open .dropdown-toggle.btn-default {
-  color: #333333;
+  color: #c48416;
   background-color: #ebebeb;
   border-color: #adadad;
 }
@@ -4516,6 +4516,7 @@ textarea.input-group-sm > .input-group-btn > .btn {
 
 .navbar-inverse .navbar-brand {
   color: #c48416;
+  text-decoration: none;
 }
 
 .navbar-inverse .navbar-brand:hover,
@@ -4530,6 +4531,7 @@ textarea.input-group-sm > .input-group-btn > .btn {
 
 .navbar-inverse .navbar-nav > li > a {
   color: #000;
+  text-decoration: none;
 }
 
 .navbar-inverse .navbar-nav > li > a:hover,
