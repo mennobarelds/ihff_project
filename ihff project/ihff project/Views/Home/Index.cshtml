@@ -9,15 +9,32 @@
 <script type="text/javascript" src="@Url.Content("~/Scripts/jquery.unobtrusive-ajax.min.js")"></script>
 @Styles.Render("~/Content/css")
 
+<script type="text/javascript">
+
+    $(document).ready(function()
+    {
+        $("#slideshow > div:gt(0)").hide();
+        setInterval(function()
+        {
+            $('#SlideshowImages > div:first').fadeOut(0).next().fadeIn(0).end().appendTo('#SlideshowImages');
+        }, 5000);
+    });
+</script>
+
 <div class="jumbotron">
-    @Model.
+    <div id="SlideshowImages">        
+        @foreach (Producten p in Model)
+        {
+            <div> <img src="@p.Image_Path" width="1140" height="400"> </div>
+        }
+    </div> 
 </div>
 
 <div class="row">
     <div class="col-md-4">
         <h2>Events</h2>
         <p>Great movies and inspiring specials</p>
-        <p>@Html.ActionLink("See all available activities", "Events", "Product", null, new { @class = "btn btn-default" })</p>
+        <p>@Html.ActionLink("See all available activities", "Events", "Product", new { dag = 0 }, new { @class = "btn btn-default" })</p>
         <h2>Food</h2>
         <p>Delicious food in exquisite restaurants</p>
         <p>@Html.ActionLink("See all available restaurants", "Restaurants", "Product", null, new { @class = "btn btn-default" })</p>
@@ -37,3 +54,5 @@
         <p><a class="btn btn-default" href="http://go.microsoft.com/fwlink/?LinkId=301866">Create Personal Programme &raquo;</a></p>
     </div>
 </div>
+
+
