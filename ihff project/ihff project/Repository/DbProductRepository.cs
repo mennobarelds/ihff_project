@@ -130,5 +130,11 @@ namespace ihff_project.Repository
             IEnumerable<Restaurants> allRestaurants = ctx.Restaurants;
             return allRestaurants;
         }
+
+        public IEnumerable<Locaties> GetAllLocaties()
+        {
+            var v = ctx.Locaties.OrderBy(a => a.Locatie_Naam).ToList();
+            return v;
+        }
     }
 }

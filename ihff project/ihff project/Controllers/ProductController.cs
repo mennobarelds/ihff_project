@@ -51,7 +51,8 @@ namespace ihff_project.Controllers
 
         public ActionResult Cultuur()
         {
-            return View();
+            IEnumerable<Locaties> l = productRepository.GetAllLocaties();
+            return View(l);
         }
 
         public ActionResult FilmDetail(int product_ID)

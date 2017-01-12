@@ -6823,3 +6823,27 @@ td.visible-print {
     display: none !important;
   }
 }
+
+.angular-google-map-container {
+        height:300px;        
+    }
+    .angular-google-map {  
+        width:80%;
+        height:100%;
+        margin:auto 0px; 
+    }
+    .locations {
+        width: 200px;
+        float: left;
+    }
+    .locations ul {
+        padding: 0px;
+        margin: 0px;
+        margin-right: 20px;
+    }
+    .locations ul li {
+        list-style-type: none;
+        padding: 5px;
+        border-bottom: 1px solid #f3f3f3;
+        cursor: pointer;
+    }

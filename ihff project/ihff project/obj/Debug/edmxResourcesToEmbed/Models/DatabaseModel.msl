@@ -59,6 +59,8 @@
     <EntitySetMapping Name="Locaties">
       <EntityTypeMapping TypeName="iHFF1617S_B3Model.Locaties">
         <MappingFragment StoreEntitySet="Locaties">
+          <ScalarProperty Name="Lengte" ColumnName="Lengte" />
+          <ScalarProperty Name="Breedte" ColumnName="Breedte" />
           <ScalarProperty Name="Postcode" ColumnName="Postcode" />
           <ScalarProperty Name="Toevoeging" ColumnName="Toevoeging" />
           <ScalarProperty Name="Huisnummer" ColumnName="Huisnummer" />
