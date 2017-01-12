@@ -311,6 +311,9 @@
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
     <Content Include="Views\Product\Events.cshtml" />
     <Content Include="Views\Product\Restaurants.cshtml" />
+    <Content Include="Views\Product\Cultuur.cshtml" />
+    <Content Include="Views\Product\FilmDetail.cshtml" />
+    <Content Include="Views\Product\RestaurantDetail.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

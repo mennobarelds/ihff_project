@@ -1,0 +1,46 @@
+﻿@using ihff_project.Models;
+@model AllFilmInfo
+
+@{
+    ViewBag.Title = "FilmDetail";
+}
+
+<h2>@Model.Film_Naam</h2>
+
+<div class="row">
+    <div class="col-md-9">
+        <div class="container-fluid">
+            <div class="row">
+                    <div class="col-md-12">
+                        <h4><label>
+                            @Model.Film_Naam -
+                            @if (Model.Prijs == 0)
+                            {
+                                @:Free
+                        }
+                            else
+                            {
+                                @: €@string.Format("{0:0.00}", Model.Prijs)
+                        }
+                        </label>
+                    </h4>
+                    <p>
+                        <img src="@Model.Image_path" alt="Movie image" height="250" />
+                        [@string.Format("{0:hh\\:mm}", Model.Start_Tijd) until @string.Format("{0:hh\\:mm}", Model.Eind_Tijd)] in @Model.Locatie_Naam - @Model.Zaal <br \>
+                    </p>
+                    @if (Model.IMDb_rating != null)
+                    {
+                        @:IMDb rating: @Model.IMDb_rating<br \>
+                        }
+                    @Model.Beschrijving_EN
+                </div>
+                    <hr />
+            </div>
+        </div>
+
+    </div>
+    <div class="col-md-3">
+        <h4><label>Plays from @string.Format("{0:hh\\:mm}", Model.Start_Tijd) until @string.Format("{0:hh\\:mm}", Model.Eind_Tijd) in @Model.Locatie_Naam</label></h4>
+
+    </div>
+</div>

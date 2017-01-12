@@ -6,26 +6,44 @@
 }
 
 <h2>Events</h2>
-
 <div class="row">
     <div class="col-md-9">
         <div class="container-fluid">
             <div class="row">
-                @foreach (AllFilmInfo f in Model)
-                {
-                    <div class="col-md-12">
-                        <h4><label>@f.Film_Naam - 
-                        @if (f.Prijs == 0)
-                        {
-                            @:Free
+                <div class="col-md-12">
+                    Dayfilter:
+                    <h3>
+                        @Html.ActionLink("All", "Events", "Product", new { dag = 0 }, null)
+                        @Html.ActionLink("Wednesday", "Events", "Product", new { dag = 3 }, null)
+                        @Html.ActionLink("Thursday", "Events", "Product", new { dag = 4 }, null)
+                        @Html.ActionLink("Friday", "Events", "Product", new { dag = 5 }, null)
+                        @Html.ActionLink("Saterday", "Events", "Product", new { dag = 6 }, null)
+                        @Html.ActionLink("Sunday", "Events", "Product", new { dag = 7 }, null)
+                    </h3>
+                    </div>
+                    <hr />
+
+                    @foreach (AllFilmInfo f in Model)
+                    {
+                        AllFilmInfo film = f;
+                        <div class="col-md-12">
+                            <h4>
+                                <label>
+                                    @Html.ActionLink(f.Film_Naam, "FilmDetail", "Product", new { f.Product_ID }, null) -
+                                @if (f.Prijs == 0)
+                                {
+                                    @:Free
                         }
-                        else
-                        {
-                            @: €@string.Format("{0:0.00}", f.Prijs)
+                                else
+                                {
+                                    @: €@string.Format("{0:0.00}", f.Prijs)
                         }
-                        </label></h4>
-                        <p><img src="@f.Image_path" alt="Movie image" height="250"/>
-                        [@string.Format("{0:hh\\:mm}", f.Start_Tijd) until @string.Format("{0:hh\\:mm}", f.Eind_Tijd)] in @f.Locatie_Naam - @f.Zaal <br \></p>
+                            </label>
+                        </h4>
+                        <p>
+                            <img src="@f.Image_path" alt="Movie image" height="250" />
+                            [@string.Format("{0:hh\\:mm}", f.Start_Tijd) until @string.Format("{0:hh\\:mm}", f.Eind_Tijd)] in @f.Locatie_Naam - @f.Zaal <br \>
+                        </p>
                         @if (f.IMDb_rating != null)
                         {
                             @:IMDb rating: @f.IMDb_rating<br \>
@@ -37,9 +55,9 @@
                         </form>
                     </div>
                     <hr />
-                }
+                    }
 
-            </div>
+                </div>
         </div>
 
     </div>
@@ -49,10 +67,6 @@
             <div class="row">
                 <div class="col-md-12">
                     <div class="PersonalProgrammeBox" style="background-color:#fff; height: 200px;">
-                        @foreach (int film in ViewBag.pp)
-                        {
-                            <p>@film</p>
-                        }
                         <button type="button" class="btn btn-danger btn-lg btn-block" style="background-color: #c48416 !important;">Add programme to cart</button>
                     </div>
                 </div>

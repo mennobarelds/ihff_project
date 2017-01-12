@@ -10,8 +10,9 @@ namespace ihff_project.Repository
     interface IProductRepository
     {
         IEnumerable<AllFilmInfo> GetAllFilmsDag(int dag);
+        IEnumerable<AllFilmInfo> GetAllFilms();
         IEnumerable<Voorstellingen> GetAllVoorstellingenFilm(int filmId);
-        Producten GetVoorstellingen(int productId);
+        IEnumerable<AllFilmInfo> GetVoorstellingen(int productId);
         Films GetFilm(int filmId);
         Voorstellingen GetVoorstelling(int productId);
         void EditFilm(Films film);

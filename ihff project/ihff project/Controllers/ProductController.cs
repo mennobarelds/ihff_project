@@ -11,18 +11,21 @@ namespace ihff_project.Controllers
     public class ProductController : Controller
     {
         private IProductRepository productRepository = new DbProductRepository();
-        public List<int> pp = new List<int>();
 
         public ActionResult Index()
         {
             return View();
         }
 
-        public ActionResult Events()
+        public ActionResult Events(int dag)
         {
-            IEnumerable<AllFilmInfo> filmList = productRepository.GetAllFilmsDag(3);
-            ViewBag.pp = pp;
-            
+            IEnumerable<AllFilmInfo> filmList;
+
+            if (dag >= 3 && dag <= 7)
+                filmList = productRepository.GetAllFilmsDag(dag);
+            else
+                filmList = productRepository.GetAllFilms();
+
             return View(filmList);
         }
 
@@ -30,8 +33,6 @@ namespace ihff_project.Controllers
         [MultipleButton(Name = "action", Argument = "Buy")]
         public ActionResult Buy(AllFilmInfo film)
         {
-            pp.Add(1);
-            pp.Add(3);
             return RedirectToAction("Events");
         }
 
@@ -46,6 +47,22 @@ namespace ihff_project.Controllers
         {
             IEnumerable<Restaurants> restaurants = productRepository.GetAllRestaurants();
             return View(restaurants);
+        }
+
+        public ActionResult Cultuur()
+        {
+            return View();
+        }
+
+        public ActionResult FilmDetail(int product_ID)
+        {
+            IEnumerable<AllFilmInfo> film = productRepository.GetVoorstellingen(product_ID);
+            return View(film.First<AllFilmInfo>());
+        }
+
+        public ActionResult RestaurantDetail()
+        {
+            return View();
         }
     }
 }

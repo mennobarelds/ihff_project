@@ -68,6 +68,8 @@ a:focus {
 a:active,
 a:hover {
   outline: 0;
+  color: #c48416;
+  text-decoration: underline;
 }
 
 h1 {
@@ -341,13 +343,13 @@ textarea {
 }
 
 a {
-  color: #428bca;
+  color: #000;
   text-decoration: none;
 }
 
 a:hover,
 a:focus {
-  color: #2a6496;
+  color: #c48416;
   text-decoration: underline;
 }
 
